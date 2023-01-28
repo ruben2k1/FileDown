@@ -25,4 +25,4 @@ const dual2 = async() => {
 
 dual2();
 
-module.exports = { dual2 };
+module.exports = dual2 ;

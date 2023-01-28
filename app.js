@@ -9,9 +9,9 @@ app.set('port', 3000 || process.env.PORT);
 app.set('views', path.join(__dirname, '/src/views'));
 
 app.engine('.hbs', engine({
-    extname: '.hbs',
+    defaultLayout: __dirname + '/src/views/index',
     partialsDir: __dirname + '/src/views/partials',
-    layoutsDir: __dirname + '/src/views/layouts',
+    extname: '.hbs',
     helpers : require('./src/lib/hbs')
 }));
 
