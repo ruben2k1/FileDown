@@ -5,8 +5,8 @@ const path = require('path');
 
 //Settings
 app.set('port', 3000 || process.env.PORT);
-
 app.set('views', path.join(__dirname, '/src/views'));
+app.set('view engine', '.hbs');
 
 app.engine('.hbs', engine({
     defaultLayout: __dirname + '/src/views/index',
@@ -15,9 +15,9 @@ app.engine('.hbs', engine({
     helpers : require('./src/lib/hbs')
 }));
 
-app.set('view engine', '.hbs');
-
+app.use(express.urlencoded({extended: true}))
 app.use(express.json());
+app.use('/public', express.static(path.join(__dirname + '/src/public')));
 
 //Global variables
 app.use((req, res, next) => {
