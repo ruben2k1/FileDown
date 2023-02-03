@@ -1,12 +1,10 @@
 const express = require('express');
+const pool = require('../database');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('index');
-})
-
-router.get('/usuarios', (req, res) => {
-    res.render('index', {title: 'Ruben', p: 'Usuarios'})
+router.get('/', async (req, res) => {
+    const [results, fields] = await pool.execute('SELECT * FROM CONTENIDO;');
+    res.render('index', {nombre: results[0][2]})
 })
 
 module.exports = router;

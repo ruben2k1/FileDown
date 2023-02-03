@@ -10,18 +10,20 @@
 <body>
     <nav>
         <ul>
-            <a href=""><img src="/public/img/logo.png" alt="logo" class="logo"></a>
-            <li><a href="">INICIO</a></li>
-            <li><a href="">ESTRENOS</a></li>
-            <li><a href="">AYUDA</a></li>
-            <li><a href="">CONTACTO</a></li>
+            <a href="/"><img src="/public/img/logo.png" alt="logo" class="logo"></a>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/archivos">ARCHIVOS</a></li>
+            <li><a href="/ayuda">AYUDA</a></li>
+            <li><a href="/contacto">CONTACTO</a></li>
             <li>
                 <form action="" method="post" class="nav-search">
                     <input type="text">
-                    <input type="button" class="btn-search" value="Buscar">
+                    <input type="submit" class="btn-search" value="Buscar">
                 </form>
             </li>
         </ul>
     </nav>
+
+    <h1>{{nombre}}</h1>
 </body>
 </html>
