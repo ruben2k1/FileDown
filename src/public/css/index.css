@@ -61,8 +61,8 @@ nav ul li a{
 }
 
 aside{
-    display: inline-block;
     text-align: center;
+    float: left;
 }
 
 aside ul{
@@ -103,4 +103,22 @@ aside ul li a{
 
 .aside-ul-li-x:hover a{
     color: white;
+}
+
+section{
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+article{
+    border: 1px solid black;
+    margin-left: 5rem;
+    margin-bottom: 2.5rem;
+}
+
+article ul{
+    list-style: none;
+    padding: 0rem;
+    text-align: center;
 }
