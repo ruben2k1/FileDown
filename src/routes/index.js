@@ -2,9 +2,14 @@ const express = require('express');
 const pool = require('../database');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-    const [results, fields] = await pool.execute('SELECT * FROM CONTENIDO;');
-    res.render('index', {nombre: results[0][2]});
+router.get('/', (req, res) => {
+    pool.query('SELECT * FROM CONTENIDO', (error, results, fields) => {
+        if (!error) {
+            res.render('index', {results})
+        }else{
+          console.log(error);
+        }
+    })
 })
 
 router.post('/', async (req, res) => {

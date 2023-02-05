@@ -35,36 +35,15 @@
     </aside>
 
     <section>
-        <article>
-            <ul>
-                <li><h2>Nombre archivo</h2></li>
-                <li>Descripción</li>
-                <li></li>
-            </ul>
-        </article>
-        <article>
-            <ul>
-                <li><h2>Nombre archivo</h2></li>
-                <li>Descripción</li>
-                <li></li>
-            </ul>
-        </article>
-
-        <article>
-            <ul>
-                <li><h2>Nombre archivo</h2></li>
-                <li>Descripción</li>
-                <li></li>
-            </ul>
-        </article>
-
-        <article>
-            <ul>
-                <li><h2>Nombre archivo</h2></li>
-                <li>Descripción</li>
-                <li></li>
-            </ul>
-        </article>
+        {{#each results}}
+            <article>
+                <ul>
+                    <li><h2>{{this.ID}}</h2></li>
+                    <li>{{this.NOMBRE}}</li>
+                    <li>{{this.DESCRIPCION}}</li>
+                </ul>
+            </article>
+        {{/each}}
     </section>
 </body>
 </html>

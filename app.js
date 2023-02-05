@@ -12,7 +12,7 @@ app.engine('.hbs', engine({
     defaultLayout: __dirname + '/src/views/index',
     partialsDir: __dirname + '/src/views/partials',
     extname: '.hbs',
-    helpers : require('./src/lib/hbs')
+    helpers: require('./src/lib/hbs')
 }))
 
 app.use(express.urlencoded({extended: true}));
