@@ -9,8 +9,7 @@ app.set('views', path.join(__dirname, '/src/views'));
 app.set('view engine', '.hbs');
 
 app.engine('.hbs', engine({
-    defaultLayout: __dirname + '/src/views/index',
-    partialsDir: __dirname + '/src/views/partials',
+    partialsDir: path.join(__dirname, '/src/views/partials'),
     extname: '.hbs',
     helpers: require('./src/lib/hbs')
 }))
