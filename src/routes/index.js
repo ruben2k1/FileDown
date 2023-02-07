@@ -17,14 +17,14 @@ router.post('/', (req, res) => {
 })
 
 router.get('/buscar/:archivo', (req, res) => {
-    pool.query(`SELECT * FROM CONTENIDO WHERE NOMBRE LIKE '%${req.params.archivo}%'`, (error, results, fields) => {
+    pool.query(`SELECT * FROM CONTENIDO WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`, (error, results, fields) => {
         res.render('buscar', {results});
     })
 })
 
 router.post('/buscar/:archivo', (req, res) => {
     if (req.params.archivo==req.body.archivo) {
-        pool.query(`SELECT * FROM CONTENIDO WHERE NOMBRE LIKE '%${req.params.archivo}%'`, (error, results, fields) => {
+        pool.query(`SELECT * FROM CONTENIDO WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`, (error, results, fields) => {
             res.render('buscar', {results});
         })
     } else {
