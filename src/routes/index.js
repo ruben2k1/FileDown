@@ -36,4 +36,16 @@ router.get('/buscar', (req, res) => {
     res.redirect('/');
 })
 
+router.get('/archivos', (req, res) => {
+    res.render('archivos');
+})
+
+router.get('/ayuda', (req, res) => {
+    res.render('ayuda');
+})
+
+router.get('/contacto', (req, res) => {
+    res.render('contacto');
+})
+
 module.exports = router;
