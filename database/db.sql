@@ -6,6 +6,7 @@ CREATE TABLE CONTENIDO(
     DESCRIPCION varchar(500) NOT NULL,
     TIPO varchar(50) NOT NULL,
     FECHA varchar(50) NOT NULL,
-    RUTA varchar(500) NOT NULL,
+    RUTA_ARCHIVO varchar(500) NOT NULL,
+    RUTA_URL varchar(500) NOT NULL,
     PRIMARY KEY(ID)
 );

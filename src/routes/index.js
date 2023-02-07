@@ -12,12 +12,28 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', async (req, res) => {
-    res.render('index', {nombre: req.body.search}); //Renderizar el search en otra plantilla con otra ruta, por ejemplo /search
+router.post('/', (req, res) => {
+    res.redirect(`/buscar/${req.body.archivo}`);
 })
 
-router.get('/search', async (req, res) => {
-    res.render('index');
+router.get('/buscar/:archivo', (req, res) => {
+    pool.query(`SELECT * FROM CONTENIDO WHERE NOMBRE LIKE '%${req.params.archivo}%'`, (error, results, fields) => {
+        res.render('buscar', {results});
+    })
+})
+
+router.post('/buscar/:archivo', (req, res) => {
+    if (req.params.archivo==req.body.archivo) {
+        pool.query(`SELECT * FROM CONTENIDO WHERE NOMBRE LIKE '%${req.params.archivo}%'`, (error, results, fields) => {
+            res.render('buscar', {results});
+        })
+    } else {
+        res.redirect(`/buscar/${req.body.archivo}`);
+    }
+})
+
+router.get('/buscar', (req, res) => {
+    res.redirect('/');
 })
 
 module.exports = router;
