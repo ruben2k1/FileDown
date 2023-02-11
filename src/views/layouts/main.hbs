@@ -18,7 +18,7 @@
             <li>
                 <form action="" method="post" class="nav-search">
                     <input type="text" name="archivo" placeholder="Buscar archivo...">
-                    <input type="submit" class="btn-search" value="Buscar">
+                    <button type="submit" class="btn-search">BUSCAR</button>
                 </form>
             </li>
         </ul>
@@ -38,9 +38,9 @@
         {{#each results}}
             <article>
                 <ul>
-                    <li>{{this.NOMBRE}}</li>
+                    <li><h3>{{this.NOMBRE}}</h3></li>
                     <li>{{this.DESCRIPCION}}</li>
-                    <a href="{{this.RUTA_ARCHIVO}}">Enlace</a>
+                    <a href="{{this.RUTA_ARCHIVO}}">DESCARGAR</a>
                 </ul>
             </article>
         {{/each}}

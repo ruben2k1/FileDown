@@ -33,6 +33,15 @@ nav ul li a{
     display: table-cell;
 }
 
+.nav-search input[type="text"] {
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
 .btn-search{
     text-decoration: none;
     color: white;
@@ -63,6 +72,7 @@ nav ul li a{
 aside{
     text-align: center;
     float: left;
+    margin-left: 2rem;
 }
 
 aside ul{
@@ -106,19 +116,42 @@ aside ul li a{
 }
 
 section{
-    margin-top: 1.2rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
+    margin-left: 15rem;
 }
 
-article{
-    border: 1px solid black;
+section article{
+    border: 0.35rem solid black;
+    border-radius: 1rem;
     margin-left: 5rem;
     margin-bottom: 2.5rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
 }
 
-article ul{
+section article ul{
     list-style: none;
     padding: 0rem;
     text-align: center;
+}
+
+section article ul li{
+    padding: 0.25rem;
+    border-bottom: 0.35rem solid black;
+}
+
+section article ul a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.contact-form{
+    border: 1px solid black;
+    margin-top: 2rem;
+    margin-left: 15rem;
 }

@@ -54,4 +54,10 @@ router.get('/contacto', (req, res) => {
     res.render('index', {layout: 'contacto'});
 })
 
+router.post('/contacto', (req, res) => {
+    pool.query(`INSERT INTO CONTACTO (NOMBRE, CORREO, MENSAJE) VALUES ("${req.body.nombre}","${req.body.correo}","${req.body.mensaje}")`, (error, results, fields) => {
+        res.redirect('/');
+    })
+})
+
 module.exports = router;
