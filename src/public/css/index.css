@@ -155,3 +155,7 @@ section article ul a{
     margin-top: 2rem;
     margin-left: 15rem;
 }
+
+.contact-form label {
+    font-weight: bold;
+}
