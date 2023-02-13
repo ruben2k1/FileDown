@@ -4,7 +4,7 @@ CREATE TABLE CONTENIDO(
     ID int(5) AUTO_INCREMENT,
     NOMBRE varchar(50) NOT NULL,
     DESCRIPCION varchar(500) NOT NULL,
-    TIPO varchar(50) NOT NULL,
+    FORMATO varchar(50) NOT NULL,
     FECHA varchar(50) NOT NULL,
     RUTA_ARCHIVO varchar(500) NOT NULL,
     RUTA_URL varchar(500) NOT NULL,
