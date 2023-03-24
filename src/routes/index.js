@@ -30,7 +30,7 @@ router.post('/buscar/:archivo?', (req, res) => {
     if (!req.params.archivo) {
         res.redirect('/');
     }else if (req.params.archivo==req.body.archivo){
-        pool.query(`SELECT * FROM CONTENIDO WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`, (error, results, fields) => {
+        pool.query(`SELECT NOMBRE, DESCRIPCION, CONCAT(RUTA_ARCHIVO, FORMATO) AS RUTA FROM CONTENIDO WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`, (error, results, fields) => {
             res.render('index', {busqueda: req.params.archivo, results, layout: 'buscar'});
         })
     }else{
