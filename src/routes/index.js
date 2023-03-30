@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/buscar', (req, res) => {
     res.redirect(`/buscar/${req.body.archivo}`);
 })
 
@@ -55,9 +55,17 @@ router.get('/contacto', (req, res) => {
 })
 
 router.post('/contacto', (req, res) => {
+    res.redirect(`/buscar/${req.body.archivo}`);
+})
+
+router.post('/enviar', (req, res) => {
     pool.query(`INSERT INTO CONTACTO (NOMBRE, CORREO, MENSAJE) VALUES ("${req.body.nombre}","${req.body.correo}","${req.body.mensaje}")`, (error, results, fields) => {
         res.redirect('/');
     })
+})
+
+router.post('/archivos', (req, res) => {
+    res.redirect(`/buscar/${req.body.archivo}`);
 })
 
 module.exports = router;
