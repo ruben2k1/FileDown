@@ -3,7 +3,7 @@ const pool = require('../database');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    pool.query('SELECT NOMBRE, DESCRIPCION, RUTA_URL FROM CONTENIDO LIMIT 20', (error, results, fields) => {
+    pool.query('SELECT NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_ARCHIVO, FORMATO) AS RUTA FROM CONTENIDO LIMIT 20', (error, results, fields) => {
         if (!error) {
             res.render('index', {results, layout: 'main'});
         }else{
