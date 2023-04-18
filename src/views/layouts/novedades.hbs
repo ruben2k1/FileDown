@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileDown - Novedades</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <nav>
+        <ul>
+            <a href="/"><img src="/public/img/logo.png" alt="logo" class="logo"></a>
+            <li><a href="/">INICIO</a></li>
+            <li><a href="/novedades">NOVEDADES</a></li>
+            <li><a href="/ayuda">AYUDA</a></li>
+            <li><a href="/contacto">CONTACTO</a></li>
+            <li>
+                <form action="/buscar" method="post" class="nav-search">
+                    <input type="text" name="archivo" placeholder="Buscar archivo...">
+                    <button type="submit" class="btn-search">BUSCAR</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <aside>
+        <ul>
+            <li class="aside-ul-li-1">EXTENSIONES</li>
+            <li class="aside-ul-li-x"><a href="">RAR</a></li>
+            <li class="aside-ul-li-x"><a href="">EXE</a></li>
+            <li class="aside-ul-li-x"><a href="">TXT</a></li>
+            <li class="aside-ul-li-x"><a href="">PDF</a></li>
+        </ul>
+    </aside>
+
+    <section>
+        {{#each results}}
+            <article>
+                <ul>
+                    <li><img src="{{this.RUTA}}" alt=""></li>
+                    <li>{{this.DESCRIPCION}}</li>
+                    <a href="{{this.RUTA}}">DESCARGAR</a>
+                </ul>
+            </article>
+        {{/each}}
+    </section>
+</body>
+</html>
