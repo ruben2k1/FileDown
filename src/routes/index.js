@@ -3,11 +3,11 @@ const pool = require('../database');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    pool.query('SELECT NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_ARCHIVO, FORMATO) AS RUTA FROM CONTENIDO LIMIT 20', (error, results, fields) => {
+    pool.query('SELECT NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE LIMIT 20', (error, results, fields) => {
         if (!error) {
             res.render('index', {results, layout: 'main'});
         }else{
-          console.log(error);
+            console.log(error);
         }
     })
 })
@@ -20,7 +20,7 @@ router.get('/buscar/:archivo?', (req, res) => {
     if (!req.params.archivo) {
         res.redirect('/');
     }else{
-        pool.query(`SELECT NOMBRE, DESCRIPCION, RUTA_URL FROM CONTENIDO WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`, (error, results, fields) => {
+        pool.query(`SELECT NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`, (error, results, fields) => {
             res.render('index', {busqueda: req.params.archivo, results, layout: 'buscar'});
         })
     }
