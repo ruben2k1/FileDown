@@ -7,21 +7,11 @@
     <title>FileDown - Archivo</title>
     <link rel="stylesheet" href="/public/css/index.css">
     <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
     {{> nav }}
 
     {{> aside }}
-
-    {{#each results}}
-        <article>
-            <ul>
-                <li><img src="{{this.RUTA}}" alt=""></li>
-                <li>{{this.DESCRIPCION}}</li>
-                <a href="{{this.RUTA}}" download>DESCARGAR</a>
-            </ul>
-        </article>
-    {{/each}}
-
 </body>
 </html>

@@ -43,11 +43,13 @@ router.get('/buscar', (req, res) => {
 })
 
 router.get('/novedades', (req, res) => {
-    res.render('index', {layout: 'novedades'});
-})
-
-router.get('/ayuda', (req, res) => {
-    res.render('index', {layout: 'ayuda'});
+    pool.query('SELECT NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE LIMIT 20', (error, results, fields) => {
+        if (!error) {
+            res.render('index', {results, layout: 'novedades'});
+        }else{
+            console.log(error);
+        }
+    })
 })
 
 router.get('/contacto', (req, res) => {

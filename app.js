@@ -11,7 +11,9 @@ app.set('view engine', '.hbs');
 app.engine('.hbs', engine({
     partialsDir: path.join(__dirname, '/src/views/partials'),
     extname: '.hbs',
-    helpers: require('./src/lib/hbs')
+    helpers: {
+        paginateHelper: require('express-handlebars-paginate').createPagination()
+    }
 }))
 
 app.use(express.urlencoded({extended: true}));

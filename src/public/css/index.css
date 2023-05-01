@@ -25,6 +25,19 @@ nav ul li a{
     -o-border-radius: 0.5rem;
 }
 
+nav ul li a:hover{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
 .logo{
     vertical-align: middle;
 }
@@ -211,4 +224,12 @@ section article ul li img{
 
 textarea{
     resize: none;
+}
+
+h2{
+    text-align: center;
+}
+
+.bi-brightness-high-fill{
+    color: yellow;
 }
