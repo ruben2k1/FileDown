@@ -15,13 +15,13 @@
     {{> aside }}
 
     <form action="/enviar" method="post" class="contact-form" align="center">
-        <label for="nombre">Nombre</label><br>
-        <input type="text" name="nombre" class="input-text" maxlength="25"><br>
-        <label for="correo">Correo electrónico</label><br>
-        <input type="email" name="correo" class="input-text" maxlength="50"><br>
-        <label for="mensaje">Mensaje</label><br>
-        <textarea name="mensaje" class="input-text" cols="30" rows="10" maxlength="200" placeholder="Si tiene alguna consulta que realizarnos, pedidos o enlaces rotos, puede contactarnos en este formulario"></textarea><br>
-        <button type="submit" class="btn-form">Enviar</button>
+        <label for="nombre"><i class="bi bi-person-vcard"></i></label><br>
+        <input type="text" name="nombre" class="input-text" maxlength="25" required><br>
+        <label for="correo"><i class="bi bi-envelope"></i></label><br>
+        <input type="email" name="correo" class="input-text" maxlength="50" required><br>
+        <label for="mensaje"><i class="bi bi-chat-dots"></i></label><br>
+        <textarea name="mensaje" class="input-text" cols="30" rows="10" maxlength="200" required placeholder="Si tiene alguna consulta que realizarnos, puede contactarnos en este formulario"></textarea><br>
+        <button type="submit" class="btn-form"><i class="bi bi-send-check"></i></button>
     </form>
 </body>
 </html>

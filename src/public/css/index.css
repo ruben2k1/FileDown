@@ -233,3 +233,8 @@ h2{
 .bi-brightness-high-fill{
     color: yellow;
 }
+
+.bi-send-check{
+    margin: 1.1rem 1.1rem;
+    font-size: 1.15rem;
+}
