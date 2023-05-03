@@ -18,11 +18,11 @@ nav ul li a{
     font-weight: bold;
     background-color: black;
     padding: 0.25rem;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
 nav ul li a:hover{
@@ -31,11 +31,11 @@ nav ul li a:hover{
     font-weight: bold;
     background-color: white;
     padding: 0.25rem;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
 .logo{
@@ -48,11 +48,12 @@ nav ul li a:hover{
 
 .nav-search input[type="text"] {
     padding: 0.25rem;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+    border-radius: 0.313rem;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
 .btn-search{
@@ -61,11 +62,11 @@ nav ul li a:hover{
     font-weight: bold;
     background-color: black;
     padding: 0.25rem;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
 .btn-search:hover{
@@ -93,11 +94,11 @@ aside ul{
     font-weight: bold;
     padding: 0rem;
     border: 0.156rem solid black;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
 aside ul li{
@@ -164,17 +165,11 @@ section article ul a{
 }
 
 .contact-form{
-    border: 0.5rem solid black;
     margin-top: 2rem;
     margin-left: 30%;
     padding: 2rem;
     display: inline-block;
-    font-size: large;
-    border-radius: 1.5rem;
-    -webkit-border-radius: 1.5rem;
-    -moz-border-radius: 1.5rem;
-    -ms-border-radius: 1.5rem;
-    -o-border-radius: 1.5rem;
+    font-size: 2rem;
 }
 
 .contact-form label {
@@ -182,8 +177,13 @@ section article ul a{
 }
 
 .contact-form .input-text {
-    font-weight: bold;
-    margin-bottom: 1.5rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .btn-form{

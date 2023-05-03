@@ -36,7 +36,7 @@ router.get('/buscar', (req, res) => {
 })
 
 router.get('/novedades', async (req, res) => {
-    const [ results ] = await pool.query('SELECT NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE LIMIT 20');
+    const [ results ] = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE LIMIT 20');
     res.render('index', {results, layout: 'novedades'});
 })
 
