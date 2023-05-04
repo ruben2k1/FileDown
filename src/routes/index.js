@@ -3,8 +3,10 @@ const pool = require('../database');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const [ results ] = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE LIMIT 20');
-    res.render('index', {layout: 'main', results});
+    const jpg = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_JPG');
+    const rar = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_RAR');
+    const pdf = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_PDF');
+    res.render('index', {layout: 'main', jpg: jpg[0], rar: rar[0], pdf: pdf[0]});
 })
 
 router.post('/buscar', (req, res) => {
@@ -37,7 +39,7 @@ router.get('/buscar', (req, res) => {
 
 router.get('/novedades', async (req, res) => {
     const [ results ] = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, RUTA_URL, CONCAT(RUTA_IMG, FORMATO) AS RUTA FROM ARCHIVOS_TABLE LIMIT 20');
-    res.render('index', {results, layout: 'novedades'});
+    res.render('index', {layout: 'novedades', results});
 })
 
 router.get('/contacto', (req, res) => {
@@ -58,9 +60,31 @@ router.post('/enviar', async (req, res) => {
     }
 })
 
-router.get('/archivo/:id', async (req, res) => {
-    const [ results ] = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, RUTA_URL FROM ARCHIVOS_TABLE WHERE ID=${req.params.id}`);
-    res.render('index', {busqueda: req.params.id, results, layout: 'buscar'});
+router.get('/archivo/:tipo/:id', async (req, res) => {
+    let results;
+
+    switch (req.params.tipo) {
+        case 'jpg':
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_JPG')
+            res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
+            break;
+        case 'rar':
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_RAR')
+            res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
+            break;
+        case 'pdf':
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_PDF')
+            res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
+            break;
+        case 'pdf':
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_XLS')
+            res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
+            break;
+        default:
+            break;
+    }
+
+    
 })
 
 module.exports = router;
