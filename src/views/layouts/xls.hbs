@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FileDown - Archivos XLS</title>
+    <link rel="stylesheet" href="/public/css/index.css">
+    <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+    {{> bootstrap }}
+</head>
+<body>
+    {{> nav }}
+    
+    {{> aside }}
+
+    <h2>Archivos XLS</h2>
+
+    <section>
+        {{#each results}}
+            <article>
+                <ul>
+                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                    <li>{{this.DESCRIPCION}}</li>
+                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                </ul>
+            </article>
+        {{/each}}
+    </section>
+</body>
+</html>
