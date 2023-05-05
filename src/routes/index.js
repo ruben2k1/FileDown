@@ -66,19 +66,19 @@ router.get('/archivo/:tipo/:id', async (req, res) => {
 
     switch (req.params.tipo) {
         case 'jpg':
-            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_JPG')
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_JPG')
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         case 'rar':
-            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_RAR')
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_RAR')
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         case 'pdf':
-            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_PDF')
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_PDF')
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         case 'xls':
-            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_XLS')
+            results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_XLS')
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         default:
@@ -87,6 +87,26 @@ router.get('/archivo/:tipo/:id', async (req, res) => {
             }
             break;
     }
+})
+
+router.get('/rar', async (req, res) => {
+    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_RAR')
+    res.render('index', {layout: 'rar', results: results[0]})
+})
+
+router.get('/jpg', async (req, res) => {
+    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_JPG')
+    res.render('index', {layout: 'jpg', results: results[0]})
+})
+
+router.get('/pdf', async (req, res) => {
+    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_PDF')
+    res.render('index', {layout: 'pdf', results: results[0]})
+})
+
+router.get('/xls', async (req, res) => {
+    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_XLS')
+    res.render('index', {layout: 'xls', results: results[0]})
 })
 
 module.exports = router;

@@ -14,16 +14,18 @@
 
     {{> aside }}
 
-    <section>
+    <h2>👇🏻 Aquí tiene el archivo solicitado</h1>
+
+    <div>
         {{#each results}}
             <article>
                 <ul>
                     <li><img src="{{this.RUTA_IMG}}" alt=""></li>
                     <li>{{this.DESCRIPCION}}</li>
-                    <a href="{{this.RUTA_URL}}" download>DESCARGAR</a>
+                    <button><a href="{{this.RUTA_URL}}" download>DESCARGAR</a></button>
                 </ul>
             </article>
         {{/each}}
-    </section>
+    </div>
 </body>
 </html>
