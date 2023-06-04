@@ -11,63 +11,59 @@
 </head>
 <body>
     {{> nav }}
-    
-    {{> aside }}
 
-    <h2>Archivos JPG</h2>
+    <div class="container">
+        {{> aside }}
 
-    <section>
-        {{#each jpg}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+        <main>
+            <h2>JPG</h2>
+            
+            {{#each jpg}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
 
-    <h2>Archivos RAR</h2>
+            <h2>RAR</h2>
 
-    <section>
-        {{#each rar}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+            {{#each rar}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
 
-    <h2>Archivos PDF</h2>
+            <h2>PDF</h2>
 
-    <section>
-        {{#each pdf}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+            {{#each pdf}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
 
-    <h2>Archivos XLS</h2>
+            <h2>XLS</h2>
 
-    <section>
-        {{#each xls}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+            {{#each xls}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
+        </main>
+    </div>
 </body>
 </html>

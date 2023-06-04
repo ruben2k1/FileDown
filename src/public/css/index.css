@@ -1,35 +1,21 @@
-*{
+body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-nav{
+nav {
     text-align: center;
 }
 
-nav ul li{
+nav ul li {
     display: inline;
     text-align: center;
     margin-left: 2.5%;
 }
 
-nav ul li a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    background-color: black;
-    padding: 0.25rem;
-    border-radius: 0.313rem;
-    -webkit-border-radius: 0.313rem;
-    -moz-border-radius: 0.313rem;
-    -ms-border-radius: 0.313rem;
-    -o-border-radius: 0.313rem;
-}
-
-nav ul li a:hover{
+nav ul li a {
     text-decoration: none;
     color: black;
     font-weight: bold;
-    background-color: white;
     padding: 0.25rem;
     border-radius: 0.313rem;
     -webkit-border-radius: 0.313rem;
@@ -38,11 +24,16 @@ nav ul li a:hover{
     -o-border-radius: 0.313rem;
 }
 
-.logo{
-    vertical-align: middle;
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
-.nav-search{
+.logo {
+    vertical-align: middle;
+    height: 3rem;
+}
+
+.nav-search {
     display: table-cell;
 }
 
@@ -56,12 +47,14 @@ nav ul li a:hover{
     -o-border-radius: 0.313rem;
 }
 
-.btn-search{
-    text-decoration: none;
-    color: white;
+.btn-search {
     font-weight: bold;
-    background-color: black;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
     padding: 0.25rem;
+    cursor: pointer;
     border-radius: 0.313rem;
     -webkit-border-radius: 0.313rem;
     -moz-border-radius: 0.313rem;
@@ -69,31 +62,27 @@ nav ul li a:hover{
     -o-border-radius: 0.313rem;
 }
 
-.btn-search:hover{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    background-color: white;
-    padding: 0.25rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
+.container {
+    display: flex;
 }
 
-aside{
-    text-align: center;
-    float: left;
-    margin-left: 3rem;
+aside {
+    padding: 1.5rem;
+}
+
+aside h2 {
+    text-decoration: underline;
 }
 
 aside ul{
+    text-align: center;
     list-style: none;
     font-weight: bold;
-    padding: 0rem;
-    border: 0.156rem solid black;
+}
+
+aside ul li {
+    margin-bottom: .75rem;
+    border: 1px solid black;
     border-radius: 0.313rem;
     -webkit-border-radius: 0.313rem;
     -moz-border-radius: 0.313rem;
@@ -101,322 +90,78 @@ aside ul{
     -o-border-radius: 0.313rem;
 }
 
-aside ul li{
-    padding: 0.5rem;
-    border-bottom: 2.5px solid black;
+aside ul li:hover {
+    background-color: black;
 }
 
-aside ul li a{
+aside ul li:hover a {
+    color: white;
+}
+
+aside ul li a {
     text-decoration: none;
     color: black;
-    margin-top: 20px;
 }
 
-.aside-ul-li-1{
-    background-color: black;
-    color: white;
-}
-
-.aside-ul-li-x{
-    font-size: small;
-}
-
-.aside-ul-li-x:hover{
-    background-color: black;
-}
-
-.aside-ul-li-x:hover a{
-    color: white;
-}
-
-section{
-    margin-top: 2rem;
+main {
+    flex-grow: 1;
+    padding: 20px;
     display: flex;
     flex-wrap: wrap;
-    margin-left: 15rem;
+    justify-content: flex-start;
 }
 
-section article{
-    border-radius: 1rem;
-    margin-left: 5rem;
-    margin-bottom: 2.5rem;
-    -webkit-border-radius: 1rem;
-    -moz-border-radius: 1rem;
-    -ms-border-radius: 1rem;
-    -o-border-radius: 1rem;
-}
-
-section article ul{
-    list-style: none;
-    padding: 0rem;
-    text-align: center;
-}
-
-section article ul li{
-    padding: 0.25rem;
-}
-
-section article ul a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-}
-
-section article ul li img {
-    max-height: 7.5rem;
-    border-radius: 0.75rem;
-    border: none;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-}
-
-section article ul button{
-    font-size: .75rem;
-    border-radius: 2rem;
-    background-color: transparent;
-    color: #333;
-    border: 2px solid black;
-    padding: 10px 20px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    -webkit-border-radius: 2rem;
-    -moz-border-radius: 2rem;
-    -ms-border-radius: 2rem;
-    -o-border-radius: 2rem;
-    -webkit-transition: background-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease;
-    -ms-transition: background-color 0.3s ease;
-    -o-transition: background-color 0.3s ease;
-}
-
-section article ul button:hover{
-    background-color: black;
-    color: white;
-}
-
-section article ul button:hover a {
-    color: white;
-}
-
-.contact-form{
-    margin-top: 2rem;
-    margin-left: 30%;
-    padding: 2rem;
-    display: inline-block;
-    font-size: 2rem;
-}
-
-.contact-form label {
-    font-weight: bold;
-}
-
-.contact-form .input-text {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #333;
+main h2 {
+    display: block;
     width: 100%;
-    box-sizing: border-box;
-}
-
-.btn-form{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    background-color: black;
-    padding: 0.25rem;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
-}
-
-.btn-form:hover{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    background-color: white;
-    padding: 0.25rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    -webkit-border-radius: 0.5rem;
-    -moz-border-radius: 0.5rem;
-    -ms-border-radius: 0.5rem;
-    -o-border-radius: 0.5rem;
-}
-
-section article ul li img{
-    max-height: 5rem;
-    border-radius: 1.15rem;
-    -webkit-border-radius: 1.15rem;
-    -moz-border-radius: 1.15rem;
-    -ms-border-radius: 1.15rem;
-    -o-border-radius: 1.15rem;
-}
-
-textarea{
-    resize: none;
-}
-
-h2{
     text-align: center;
+    margin-bottom: 2rem;
 }
 
-.bi-brightness-high-fill{
-    color: yellow;
-}
-
-.bi-send-check{
-    margin: 1.1rem 1.1rem;
-    font-size: 1.15rem;
-}
-
-.span-404{
-    font-size: 1.75rem;
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bold;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-}
-
-@media only screen and (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin-left: 0;
-        margin-top: 1.5rem;
-    }
-
-    nav ul li a, .btn-search {
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-    }
-    
-    .nav-search{
-        display: flex;
-        justify-content: center;
-    }
-
-    section {
-        margin-left: 2rem;
-    }
-
-    section article {
-        margin-left: 2rem;
-    }
-}
-
-@media only screen and (min-width: 769px) and (max-width: 1024px) {
-    .nav-search{
-        display: flex;
-        justify-content: center;
-    }
-    
-    nav ul li {
-      display: block;
-      margin-left: 0;
-      margin-top: 1.5rem;
-    }
-    
-    nav ul li a, .btn-search {
-      padding: 0.5rem;
-      border-radius: 0.5rem;
-    }
-    
-    section {
-      margin-left: 5rem;
-    }
-    
-    section article {
-      margin-left: 3rem;
-    }
-}
-
-@media only screen and (min-width: 1025px) {
-    nav ul li {
-      display: inline;
-      margin-left: 2.5%;
-    }
-    
-    nav ul li a, .btn-search {
-      padding: 0.25rem;
-      border-radius: 0.313rem;
-    }
-    
-    section {
-      margin-left: 15rem;
-    }
-    
-    section article {
-      margin-left: 5rem;
-    }
-}
-
-div {
-    font-size: 2rem;
-    margin-top: 2rem;
+article {
+    flex: 20%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    max-width: 800px;
-}  
-
-div article{
-    margin-left: 5rem;
-    margin-bottom: 2.5rem;
-}
-
-div article ul{
-    list-style: none;
-    padding: 0rem;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-div article ul li{
-    padding: 0.25rem;
+article ul {
+    list-style-type: none;
 }
 
-div article ul li img {
-    max-height: 7.5rem;
-    border-radius: 0.75rem;
-    border: none;
-    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+article ul li img {
+    height: 7.5rem;
+    border: transparent;
+    border-radius: .25rem;
+    -webkit-border-radius: .25rem;
+    -moz-border-radius: .25rem;
+    -ms-border-radius: .25rem;
+    -o-border-radius: .25rem;
 }
 
-div article ul li img:hover {
-    transform: scale(1.25);
+article ul li img:hover {
+    transform: scale(1.05);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     -webkit-transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     -moz-transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     -ms-transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
     -o-transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    -webkit-transform: scale(1.25);
-    -moz-transform: scale(1.25);
-    -ms-transform: scale(1.25);
-    -o-transform: scale(1.25);
-}
-  
-
-div article ul a{
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
 }
 
-div article ul button{
+article ul button {
+    font-size: .75rem;
     border-radius: 2rem;
     background-color: transparent;
     color: #333;
-    border: 2px solid #333;
-    padding: 10px 20px;
+    border: 2px solid black;
+    padding: 0.5rem;
     letter-spacing: 1px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -430,11 +175,16 @@ div article ul button{
     -o-transition: background-color 0.3s ease;
 }
 
-div article ul button:hover{
+article ul button a {
+    text-decoration: none;
+    color: black;
+}
+
+article ul button:hover{
     background-color: black;
     color: white;
 }
 
-div article ul button:hover a {
+article ul button:hover a {
     color: white;
 }
