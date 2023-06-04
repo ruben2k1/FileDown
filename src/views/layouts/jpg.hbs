@@ -11,21 +11,23 @@
 </head>
 <body>
     {{> nav }}
-    
-    {{> aside }}
 
-    <h2>Archivos JPG</h2>
+    <div class="container">
+        {{> aside }}
 
-    <section>
-        {{#each results}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+        <main>
+            <h2>Archivos JPG</h2>
+            
+            {{#each jpg}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
+        </main>
+    </div>
 </body>
 </html>

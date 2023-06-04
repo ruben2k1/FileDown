@@ -3,7 +3,7 @@ const pool = require('../database');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const jpg = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_IMG, FECHA, CONCAT( REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA, RUTA_URL FROM ARCHIVOS_JPG`);
+    const jpg = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_IMG, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA, RUTA_URL FROM ARCHIVOS_JPG`);
     const rar = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_RAR');
     const pdf = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_PDF');
     const xls = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_XLS');
@@ -19,7 +19,13 @@ router.get('/buscar/:archivo?', async (req, res) => {
         res.redirect('/');
     }else{
         const results = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_TABLE WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`);
-        res.render('index', {busqueda: req.params.archivo, layout: 'buscar', results: results[0]});
+        
+        if (results[0].length < 1) {
+            res.render('index', {layout: '404'});
+        }else{
+            res.render('index', {busqueda: req.params.archivo, layout: 'buscar', results: results[0]});
+        }
+        
     }
 })
 
@@ -39,8 +45,11 @@ router.get('/buscar', (req, res) => {
 })
 
 router.get('/novedades', async (req, res) => {
-    const results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_TABLE');
-    res.render('index', {layout: 'novedades', results: results[0]});
+    const jpg = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_IMG, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA, RUTA_URL FROM ARCHIVOS_JPG LIMIT 10`);
+    const rar = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_RAR LIMIT 10');
+    const pdf = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_PDF LIMIT 10');
+    const xls = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_XLS LIMIT 10');
+    res.render('index', {layout: 'novedades', jpg: jpg[0], rar: rar[0], pdf: pdf[0], xls: xls[0]});
 })
 
 router.get('/contacto', (req, res) => {
@@ -90,23 +99,24 @@ router.get('/archivo/:tipo/:id', async (req, res) => {
 })
 
 router.get('/rar', async (req, res) => {
-    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_RAR')
-    res.render('index', {layout: 'rar', results: results[0]})
+    const rar = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'RAR_') + LENGTH('RAR_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_RAR;`);
+    res.render('index', {layout: 'rar', rar: rar[0]});
 })
 
 router.get('/jpg', async (req, res) => {
-    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_JPG')
-    res.render('index', {layout: 'jpg', results: results[0]})
+    const jpg = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_IMG, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'JPG_') + LENGTH('JPG_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA, RUTA_URL FROM ARCHIVOS_JPG`);
+    res.render('index', {layout: 'jpg', jpg: jpg[0]});
 })
 
 router.get('/pdf', async (req, res) => {
-    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_PDF')
-    res.render('index', {layout: 'pdf', results: results[0]})
+    const pdf = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'PDF_') + LENGTH('PDF_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_PDF;`);
+    res.render('index', {layout: 'pdf', pdf: pdf[0]});
 })
 
 router.get('/xls', async (req, res) => {
-    let results = await pool.query('SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, CONCAT(RUTA_IMG, FORMATO_ARCHIVO) AS RUTA_URL FROM ARCHIVOS_XLS')
-    res.render('index', {layout: 'xls', results: results[0]})
+    const xls = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'XLS_') + LENGTH('PDF_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_XLS`);
+    res.render('index', {layout: 'xls', xls: xls[0]});
+    
 })
 
 module.exports = router;

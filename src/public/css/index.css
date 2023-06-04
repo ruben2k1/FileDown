@@ -14,8 +14,9 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
+    background-color: black;
     padding: 0.25rem;
     border-radius: 0.313rem;
     -webkit-border-radius: 0.313rem;
@@ -25,7 +26,16 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    padding: 0.25rem;
+    border-radius: 0.313rem;
+    -webkit-border-radius: 0.313rem;
+    -moz-border-radius: 0.313rem;
+    -ms-border-radius: 0.313rem;
+    -o-border-radius: 0.313rem;
 }
 
 .logo {
@@ -38,7 +48,7 @@ nav ul li a:hover {
 }
 
 .nav-search input[type="text"] {
-    padding: 0.25rem;
+    padding: 0.5rem;
     border-radius: 0.313rem;
     border: 1px solid #ccc;
     -webkit-border-radius: 0.313rem;
@@ -48,18 +58,33 @@ nav ul li a:hover {
 }
 
 .btn-search {
+    border: none;
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: white;
     font-weight: bold;
-    background-color: white;
-    padding: 0.25rem;
+    background-color: black;
+    padding: 0.5rem;
     cursor: pointer;
     border-radius: 0.313rem;
     -webkit-border-radius: 0.313rem;
     -moz-border-radius: 0.313rem;
     -ms-border-radius: 0.313rem;
     -o-border-radius: 0.313rem;
+}
+
+.btn-search:hover{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
 }
 
 .container {
@@ -187,4 +212,69 @@ article ul button:hover{
 
 article ul button:hover a {
     color: white;
+}
+
+.bi-brightness-high-fill{
+    color: yellow;
+}
+
+.bi-send-check{
+    margin: 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+}
+
+.contact-form{
+    margin-top: 2rem;
+    margin-left: 30%;
+    padding: 2rem;
+    display: inline-block;
+    font-size: 2rem;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form .input-text {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-form{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    padding: .25rem;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
+.btn-form:hover{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+
+.span-404{
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-left: 25%;
+    margin-top: 25%;
 }

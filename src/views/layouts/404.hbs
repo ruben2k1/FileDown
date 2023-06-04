@@ -11,9 +11,11 @@
 </head>
 <body>
     {{> nav }}
-
-    {{> aside }}
-
-    <span class="span-404">⚠️ El recurso solicitado no existe ⛔</span>
+    <div class="container">
+        {{> aside }}
+        <main>
+            <span class="span-404">⚠️ El recurso solicitado no existe ⛔</span>
+        </main>
+    </div>
 </body>
 </html>

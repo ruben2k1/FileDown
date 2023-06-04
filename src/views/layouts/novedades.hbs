@@ -12,20 +12,58 @@
 <body>
     {{> nav }}
 
-    {{> aside }}
+    <div class="container">
+        {{> aside }}
 
-    <h2>👇🏻 Últimos archivos añadidos</h1>
+        <main>
+            <h2>👇🏻 Últimos archivos añadidos</h2>
+            
+            {{#each jpg}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
 
-    <section>
-        {{#each results}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+            <h2>RAR</h2>
+
+            {{#each rar}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
+
+            <h2>PDF</h2>
+
+            {{#each pdf}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
+
+            <h2>XLS</h2>
+
+            {{#each xls}}
+                <article>
+                    <ul>
+                        <li><img src="{{this.RUTA_IMG}}" alt=""></li>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
+        </main>
+    </div>
 </body>
 </html>

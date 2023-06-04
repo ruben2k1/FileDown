@@ -12,18 +12,21 @@
 <body>
     {{> nav }}
 
-    {{> aside }}
+    <div class="container">
+        {{> aside }}
 
-    <section>
-        {{#each results}}
-            <article>
-                <ul>
-                    <li><img src="{{this.RUTA_IMG}}" alt=""></li>
-                    <li>{{this.DESCRIPCION}}</li>
-                    <button><a href="{{this.RUTA_URL}}">DESCARGAR</a></button>
-                </ul>
-            </article>
-        {{/each}}
-    </section>
+        <main>
+            <h2>Búsqueda: {{busqueda}}</h2>
+            
+            {{#each results}}
+                <article>
+                    <ul>
+                        <li>{{this.DESCRIPCION}}</li>
+                        <button><a href="{{this.RUTA_DESCARGA}}">DESCARGAR</a></button>
+                    </ul>
+                </article>
+            {{/each}}
+        </main>
+    </div>
 </body>
 </html>
