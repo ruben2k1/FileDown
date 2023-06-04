@@ -74,11 +74,11 @@ router.get('/archivo/:tipo/:id', async (req, res) => {
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         case 'pdf':
-            results = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'RAR_') + LENGTH('RAR_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_PDF WHERE ID='PDF_${req.params.id}';`);
+            results = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'PDF_') + LENGTH('PDF_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_PDF WHERE ID='PDF_${req.params.id}';`);
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         case 'xls':
-            results = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'RAR_') + LENGTH('RAR_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_XLS WHERE ID='XLS_${req.params.id}';`)
+            results = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMAGEN, FECHA, CONCAT(REPLACE(REPLACE(RUTA_IMG, '/1/', '/'), '1', ''), SUBSTRING(ID, INSTR(ID, 'XLS_') + LENGTH('PDF_')), FORMATO_ARCHIVO) AS RUTA_DESCARGA FROM ARCHIVOS_XLS WHERE ID='XLS_${req.params.id}';`)
             res.render('index', {busqueda: req.params.id, layout: 'archivo', results: results[0]});
             break;
         default:

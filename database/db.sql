@@ -58,6 +58,18 @@ CREATE TABLE ARCHIVOS_PDF(
     PRIMARY KEY(ID, FECHA)
 );
 
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_1', 'PDF 1', 'ARCHIVO PDF 1', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/1');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_2', 'PDF 2', 'ARCHIVO PDF 2', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/2');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_3', 'PDF 3', 'ARCHIVO PDF 3', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/3');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_4', 'PDF 4', 'ARCHIVO PDF 4', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/4');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_5', 'PDF 5', 'ARCHIVO PDF 5', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/5');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_6', 'PDF 6', 'ARCHIVO PDF 6', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/6');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_7', 'PDF 7', 'ARCHIVO PDF 7', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/7');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_8', 'PDF 8', 'ARCHIVO PDF 8', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/8');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_9', 'PDF 9', 'ARCHIVO PDF 9', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/9');
+INSERT INTO `archivos_pdf` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('PDF_10', 'PDF 10', 'ARCHIVO PDF 10', '.jpg', '.pdf', current_timestamp(), '/public/files/pdf/1', '/archivo/pdf/10');
+
+
 CREATE TABLE ARCHIVOS_XLS(
     ID varchar(50),
     NOMBRE varchar(50) NOT NULL,
@@ -69,6 +81,17 @@ CREATE TABLE ARCHIVOS_XLS(
     RUTA_URL varchar(500) NOT NULL,
     PRIMARY KEY(ID, FECHA)
 );
+
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_1', 'XLS 1', 'ARCHIVO XLS 1', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/1');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_2', 'XLS 2', 'ARCHIVO XLS 2', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/2');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_3', 'XLS 3', 'ARCHIVO XLS 3', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/3');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_4', 'XLS 4', 'ARCHIVO XLS 4', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/4');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_5', 'XLS 5', 'ARCHIVO XLS 5', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/5');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_6', 'XLS 6', 'ARCHIVO XLS 6', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/6');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_7', 'XLS 7', 'ARCHIVO XLS 7', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/7');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_8', 'XLS 8', 'ARCHIVO XLS 8', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/8');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_9', 'XLS 9', 'ARCHIVO XLS 9', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/9');
+INSERT INTO `archivos_xls` (`ID`, `NOMBRE`, `DESCRIPCION`, `FORMATO_IMG`, `FORMATO_ARCHIVO`, `FECHA`, `RUTA_IMG`, `RUTA_URL`) VALUES ('XLS_10', 'XLS 10', 'ARCHIVO XLS 10', '.jpg', '.xls', current_timestamp(), '/public/files/xls/1', '/archivo/xls/10');
 
 CREATE TABLE CONTACTO(
     ID int(5) AUTO_INCREMENT,
