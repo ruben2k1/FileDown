@@ -108,6 +108,7 @@ aside ul{
 aside ul li {
     margin-bottom: .75rem;
     border: 1px solid black;
+    padding: 0.5rem;
     border-radius: 0.313rem;
     -webkit-border-radius: 0.313rem;
     -moz-border-radius: 0.313rem;
