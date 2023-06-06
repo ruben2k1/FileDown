@@ -18,7 +18,34 @@ router.get('/buscar/:archivo?', async (req, res) => {
     if (!req.params.archivo) {
         res.redirect('/');
     }else{
-        const results = await pool.query(`SELECT ID, NOMBRE, DESCRIPCION, CONCAT(RUTA_IMG, FORMATO_IMG) AS RUTA_IMG, FECHA, RUTA_URL FROM ARCHIVOS_TABLE WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`);
+        const results = await pool.query(`SELECT
+        NOMBRE,
+        DESCRIPCION,
+        FORMATO_IMG,
+        FORMATO_ARCHIVO,
+        CONCAT(RUTA_IMG, '.jpg') AS RUTA_IMG,
+        RUTA_URL AS RUTA_URL
+        FROM
+            (
+            SELECT
+                NOMBRE,
+                DESCRIPCION,
+                FORMATO_IMG,
+                FORMATO_ARCHIVO,
+                CASE
+                    WHEN LEFT(ID, 3) = 'JPG' THEN CONCAT('/public/files/jpg/', SUBSTRING_INDEX(SUBSTRING_INDEX(RUTA_URL, '/', -3), '/', -1))
+                    WHEN FORMATO_ARCHIVO = 'xls' THEN '/public/files/xls/1'
+                    WHEN FORMATO_ARCHIVO = 'rar' THEN '/public/files/rar/1'
+                    WHEN FORMATO_ARCHIVO = 'pdf' THEN '/public/files/pdf/1'
+                    ELSE RUTA_IMG
+                END AS RUTA_IMG,
+                RUTA_URL AS RUTA_URL
+            FROM
+                archivos_table
+            ) AS subquery
+        WHERE
+        LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%');
+    `);
         
         if (results[0].length < 1) {
             res.render('index', {layout: '404'});
@@ -34,22 +61,24 @@ router.post('/buscar/:archivo?', (req, res) => {
         res.redirect('/');
     }else if (req.params.archivo==req.body.archivo){
         const results = pool.query(`SELECT
-        NOMBRE,
-        DESCRIPCION,
-        FORMATO_IMG,
-        FORMATO_ARCHIVO,
-        CASE
-            WHEN LEFT(ID, 3) = 'JPG' THEN CONCAT('/public/files/jpg/', SUBSTRING_INDEX(SUBSTRING_INDEX(RUTA_URL, '/', -3), '/', -1))
-            WHEN FORMATO_ARCHIVO = 'xls' THEN '/public/files/xls/1'
-            WHEN FORMATO_ARCHIVO = 'rar' THEN '/public/files/rar/1'
-            WHEN FORMATO_ARCHIVO = 'pdf' THEN '/public/files/pdf/1'
-            ELSE RUTA_IMG
-        END AS RUTA_IMG,
-        RUTA_URL AS RUTA_DESCARGA
-        FROM
-        archivos_table;
-        LIKE LOWER('%${req.params.archivo}%');
-      `);
+            NOMBRE,
+            DESCRIPCION,
+            FORMATO_IMG,
+            FORMATO_ARCHIVO,
+            CASE
+                WHEN LEFT(ID, 3) = 'JPG' THEN CONCAT('/public/files/jpg/', SUBSTRING_INDEX(SUBSTRING_INDEX(RUTA_URL, '/', -3), '/', -1))
+                WHEN FORMATO_ARCHIVO = 'xls' THEN '/public/files/xls/1'
+                WHEN FORMATO_ARCHIVO = 'rar' THEN '/public/files/rar/1'
+                WHEN FORMATO_ARCHIVO = 'pdf' THEN '/public/files/pdf/1'
+                ELSE RUTA_IMG
+            END AS RUTA_IMAGEN,
+            RUTA_URL AS RUTA_DESCARGA
+            FROM
+            archivos_table
+            WHERE
+            RUTA_IMAGEN LIKE LOWER('%${req.params.archivo}%');
+        `);
+        
         res.render('index', {busqueda: req.params.archivo, layout: 'buscar', results: results[0]});
     }else{
         res.redirect(`/buscar/${req.body.archivo}`);
