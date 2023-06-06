@@ -279,3 +279,10 @@ article ul button:hover a {
     margin-left: 25%;
     margin-top: 25%;
 }
+
+.success{
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-left: 25%;
+    margin-top: 25%;
+}

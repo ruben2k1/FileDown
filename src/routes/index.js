@@ -109,7 +109,7 @@ router.post('/enviar', async (req, res) => {
     const [ results ] = await pool.query(`INSERT INTO CONTACTO (NOMBRE, CORREO, MENSAJE) VALUES ("${req.body.nombre}","${req.body.correo}","${req.body.mensaje}")`);
 
     if (results.affectedRows===1) {
-        res.redirect('/');
+        res.render('index', {layout: 'success'});
     }else{
         res.redirect('/');
     }
