@@ -33,7 +33,23 @@ router.post('/buscar/:archivo?', (req, res) => {
     if (!req.params.archivo) {
         res.redirect('/');
     }else if (req.params.archivo==req.body.archivo){
-        const results = pool.query(`SELECT ID, NOMBRE, DESCRIPCION, RUTA_URL FROM CONTENIDO WHERE LOWER(NOMBRE) LIKE LOWER('%${req.params.archivo}%')`);
+        const results = pool.query(`SELECT
+        NOMBRE,
+        DESCRIPCION,
+        FORMATO_IMG,
+        FORMATO_ARCHIVO,
+        CASE
+            WHEN LEFT(ID, 3) = 'JPG' THEN CONCAT('/public/files/jpg/', SUBSTRING_INDEX(SUBSTRING_INDEX(RUTA_URL, '/', -3), '/', -1))
+            WHEN FORMATO_ARCHIVO = 'xls' THEN '/public/files/xls/1'
+            WHEN FORMATO_ARCHIVO = 'rar' THEN '/public/files/rar/1'
+            WHEN FORMATO_ARCHIVO = 'pdf' THEN '/public/files/pdf/1'
+            ELSE RUTA_IMG
+        END AS RUTA_IMG,
+        RUTA_URL AS RUTA_DESCARGA
+        FROM
+        archivos_table;
+        LIKE LOWER('%${req.params.archivo}%');
+      `);
         res.render('index', {busqueda: req.params.archivo, layout: 'buscar', results: results[0]});
     }else{
         res.redirect(`/buscar/${req.body.archivo}`);
